@@ -14,24 +14,24 @@ http://10.0.30.95:3000/search?item=value
 value - значение, которое ищем.
 
 
-http://127.0.0.1:3000/login (admin admin)
+http://localhost:3000/login (admin admin)
 
-Кнопка в форме логина отправляет пост-запрос по адресу http://127.0.0.1:3000//api/login
+Форма логина
 
+http://localhost:3000//api/login
+
+Кнопка в форме логина отправляет пост-запрос по адресу. 
 сервер по этому адресу ловит пост запросы и отрабатывает условие дать токен или нет.
-
-
 Когда Получишь токен, для закрытый методов он должен быть в гет-запросе в хедере authorization "xxxxxxx"  xxxxxxx - token
-
 
 Тестовый закрытый метод апи
 
-http://127.0.0.1:3000/api/protected
+http://localhost:3000/api/protected
 
 Каталог популярных товаров
 
 
-http://127.0.0.1:3000/api/catalog/popular
+http://localhost:3000/api/catalog/popular
 
 
 
