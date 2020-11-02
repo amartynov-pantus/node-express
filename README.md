@@ -26,7 +26,7 @@ http://localhost:3000//api/login
 
 Тестовый закрытый метод апи
 
-http://localhost:3000/api/protected
+http://adm.pantus.ru:8081/api/catalog/testprotected
 
 Каталог популярных товаров
 
