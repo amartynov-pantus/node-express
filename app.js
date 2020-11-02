@@ -25,31 +25,49 @@ const routersApi = require ("./methods-api/routers"); // апи методы
   res.send('Hello World!');  
   });
 
+  app.options('/', function (req, res) {
+  	res.send('');  
+  });
+
   app.get('/help', function (req, res) {
     res.sendFile('public/help.html' , { root : __dirname});    
+  });
+
+  app.options('/help', function (req, res) {
+  	res.send('');  
   });
 
   app.get('/login', function (req, res) { //тестовая форма лооина
     res.sendFile('public/login.html' , { root : __dirname});    
   });
 
-app.post('/auth/login', function(request, response){
-  //метод авторизации
-var token = auth.authMethod(request.body.login, request.body.password);
-if (token !== undefined) {
-response.json({
-        token: token
-      })
-}
-else {response.sendStatus(403);}
-});
+  app.options('/login', function (req, res) {
+  	res.send('');  
+  });
+
+  app.post('/auth/login', function(request, response){
+    //метод авторизации
+  var token = auth.authMethod(request.body.login, request.body.password);
+  if (token !== undefined) {
+  response.json({
+          token: token
+        })
+  }
+  else {response.sendStatus(403);}
+  });
+  app.options('/auth/login', function (req, res) {
+  	res.send('');  
+  });
 
 
-app.use('/api', routersApi); // кидаем все апи всё на маршрутизатор
+  app.use('/api', routersApi); // кидаем все апи всё на маршрутизатор
+  app.options('/api/*', function (req, res) {
+  	res.send('');  
+  });
 
 
-  app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+  app.listen(8000, function () {
+    console.log('Example app listening on port 8000!');
 });
   
 
